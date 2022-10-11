@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Calculator {
     private String formula;
+    private List<Integer> integerList = new ArrayList<>();
+    private List<String> operatorList = new ArrayList<>();
 
     public Calculator(String expression) {
         this.formula = expression;
@@ -14,12 +16,18 @@ public class Calculator {
         return this.formula;
     }
 
+    public List<Integer> getIntegerList() {
+        return this.integerList;
+    }
+
+    public List<String> getOperatorList() {
+        return this.operatorList;
+    }
+
     public boolean validator() {
         boolean correctFlag = true;
 
         String[] formulaList = this.getFormula().split(" ");
-        List<Integer> integerList = new ArrayList<>();
-        List<String> operatorList = new ArrayList<>();
 
         for(int idx = 0; idx < formulaList.length; idx++) {
             if (idx % 2 == 0) {

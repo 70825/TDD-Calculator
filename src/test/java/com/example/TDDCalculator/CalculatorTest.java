@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,12 +21,12 @@ class CalculatorTest {
     }
 
     @Test
-    public void getFormula() {
+    public void getFormulaTest() {
         assertEquals("31 + 55 - 2 * 3 / 4", calculator.getFormula());
     }
 
     @Test
-    public void validator() {
+    public void validatorTest() {
         boolean testCorrectFlag;
 
         testCorrectFlag = calculator.validator();
@@ -38,5 +39,19 @@ class CalculatorTest {
         Calculator calculator2 = new Calculator("30 10 10");
         testCorrectFlag = calculator2.validator();
         assertFalse(testCorrectFlag);
+    }
+
+    @Test
+    public void splitIntegerTest() {
+        calculator.validator();
+
+        assertEquals(Arrays.asList(31, 55, 2, 3, 4), calculator.getIntegerList());
+    }
+
+    @Test
+    public void splitOperatorTest() {
+        calculator.validator();
+
+        assertEquals(Arrays.asList("+", "-", "*", "/"), calculator.getOperatorList());
     }
 }
