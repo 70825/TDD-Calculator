@@ -54,4 +54,14 @@ class CalculatorTest {
 
         assertEquals(Arrays.asList("+", "-", "*", "/"), calculator.getOperatorList());
     }
+
+    @Test
+    public void calculationTest() {
+        calculator.validator();
+        assertEquals(63, calculator.calculation());
+
+        Calculator calculator1 = new Calculator("2 / 5");
+        calculator1.validator();
+        assertEquals(0, calculator1.calculation());
+    }
 }

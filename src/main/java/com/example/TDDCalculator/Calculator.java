@@ -52,4 +52,28 @@ public class Calculator {
 
         return correctFlag;
     }
+
+    public int calculation() {
+        String operator;
+        int integer;
+
+        int answer = integerList.get(0);
+
+        for(int idx = 0; idx < operatorList.size(); idx++) {
+            operator = operatorList.get(idx);
+            integer = integerList.get(idx + 1);
+
+            if (operator.equals("+")) {
+                answer += integer;
+            } else if (operator.equals("-")) {
+                answer -= integer;
+            } else if (operator.equals("*")) {
+                answer *= integer;
+            } else {
+                answer /= integer;
+            }
+        }
+
+        return answer;
+    }
 }
